@@ -1,5 +1,7 @@
 {
   "name": "Tramonique",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
