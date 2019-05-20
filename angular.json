@@ -117,8 +117,8 @@
               },
               {
                 "glob": "**/*",
-                "input": "src/assets",
-                "output": "/assets"
+                "input": "./node_modules/leaflet/dist/images",
+                "output": "leaflet/"
               }
             ]
           },

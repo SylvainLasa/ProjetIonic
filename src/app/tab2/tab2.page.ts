@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { Map, latLng, tileLayer, Layer, marker } from 'leaflet';
+import { Map, latLng, tileLayer, Layer, marker, icon } from 'leaflet';
 
 @Component({
   selector: 'app-tab2',
@@ -8,20 +8,30 @@ import { Map, latLng, tileLayer, Layer, marker } from 'leaflet';
 })
 export class Tab2Page {
   map: Map;
+  lat: number = 45.188096;
+  lng: number =  5.718452;
 
-  ionViewDidEnter() { this.leafletMap(); }
+  ionViewDidEnter() { this.loadMap(); }
 
-  leafletMap() {
-    // In setView add latLng and zoom
-    this.map = new Map('mapId').setView([45.188096, 5.718452], 10);
-    tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-      attribution: 'edupala.com © ionic LeafLet',
-    }).addTo(this.map);
+  loadMap() {
+    setTimeout(() => {
+      this.map = new Map('map').setView([this.lat, this.lng], 12);
+  
+      tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy;',
+        maxZoom: 18
+      }).addTo(this.map);
+      marker([45.188096, 5.718452], {
+        icon: icon({
+          iconSize: [ 25, 41 ],
+          iconAnchor: [ 13, 41 ],
+          iconUrl: 'leaflet/marker-icon.png',
+          shadowUrl: 'leaflet/marker-shadow.png'
+        })
+      }).addTo(this.map)
+      .bindPopup('Salut <br> ça va?');
 
-
-    marker([28.6, 77]).addTo(this.map)
-      .bindPopup('Ionic 4 <br> Leaflet.')
-      .openPopup();
+    }, 50);
   }
 
   /** Remove map when we have multiple map object */
