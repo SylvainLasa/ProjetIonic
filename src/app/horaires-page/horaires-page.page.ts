@@ -41,8 +41,8 @@ export class HorairesPagePage implements OnInit {
   
 
 loadData(id:any){
-  let spinner2 = document.getElementById("spinner2");
-  spinner2.hidden = false;
+  let spinner3 = document.getElementById("spinner3");
+  spinner3.hidden = false;
   this.id = this.id.slice(4);
   let currentSeconds = this.time();
   let data:Observable<any>;
@@ -53,7 +53,7 @@ loadData(id:any){
     this.pattern = result['0']['pattern'];
     this.times.forEach(element => {
       this.calcul(element.scheduledArrival);
-      spinner2.hidden = true;
+      spinner3.hidden = true;
 
     });
     this.direction = this.pattern.desc;

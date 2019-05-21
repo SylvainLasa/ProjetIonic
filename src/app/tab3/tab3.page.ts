@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { NavController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Router, Routes, RouterModule } from '@angular/router';
+import { load } from '@angular/core/src/render3';
 
 
 
@@ -18,14 +19,10 @@ import { Router, Routes, RouterModule } from '@angular/router';
 export class Tab3Page{
 
   constructor(public navCtrl: NavController, public http: HttpClient, private router: Router) {
-  
-
    }
 
   test(id: any){
     console.log(id);
-    let spinner = document.getElementById("spinner");
-    spinner.hidden = false;
     this.router.navigate(['/modal-page',{id: id}]);
   }
 

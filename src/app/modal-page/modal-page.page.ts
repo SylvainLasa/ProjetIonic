@@ -24,6 +24,7 @@ export class ModalPagePage {
 
   public direction:boolean =false;
 
+  public data: any;
 
 
   constructor(public navCtrl: NavController, public http: HttpClient, private router: Router, public route: ActivatedRoute) {
@@ -40,8 +41,9 @@ export class ModalPagePage {
 
 
 loadData(id: any){
-  let spinner = document.getElementById("spinner");
-  spinner.hidden = false;
+  this.data=false;
+  let spinner2 = document.getElementById("spinner2");
+  spinner2.hidden = false;
   let data:Observable<any>;
   let data2:Observable<any>;
   data2 = this.http.get('https://data.metromobilite.fr/api/ficheHoraires/json?route=SEM:'+this.id+'&time=');
@@ -61,18 +63,19 @@ loadData(id: any){
     this.dir2 = this.arrayB[this.arrayB.length-1];
 
     console.log(this.arrayA);
-    spinner.hidden = true;
+    spinner2.hidden = true;
+    this.data=true;
 
   })
 
 }
 
 changeDir(dest){
-  let spinner = document.getElementById("spinner");
+  let spinner2 = document.getElementById("spinner2");
   //let dest1 = document.getElementById("dest1");
   //let dest2 = document.getElementById("dest2");
 
-  spinner.hidden = false;
+  spinner2.hidden = false;
   this.arrayA = [];
   
   let data2:Observable<any>;
@@ -90,7 +93,7 @@ changeDir(dest){
       this.arrayA.push((element.stopName));
     });
     this.dir = this.arrayA[this.arrayA.length-1];
-    spinner.hidden = true;
+    spinner2.hidden = true;
 
   });
 }
