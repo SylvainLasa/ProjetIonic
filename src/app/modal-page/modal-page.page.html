@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>ModalPage</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item  *ngFor="let term of arrayH;" >
+            <ion-row>
+              <p >{{term}}</p>
+            </ion-row>
+        </ion-item>
+    </ion-list>  
+</ion-content>
