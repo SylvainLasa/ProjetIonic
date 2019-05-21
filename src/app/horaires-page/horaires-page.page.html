@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{direction}}</ion-title>
+      <ion-spinner slot="end" id="spinner2" name="crescent" style="margin-right : 10px;" hidden="false"></ion-spinner>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+      <ion-list>
+          <ion-item  *ngFor="let term of arrayH;" >
+              <ion-row>
+                <p>{{term}} minutes</p>
+              </ion-row>
+          </ion-item>
+      </ion-list>  
+  
+  </ion-content>
+  

@@ -3,34 +3,99 @@
     <ion-title>
       Horaires
     </ion-title>
+    <ion-spinner slot="end" id="spinner" name="crescent" style="margin-right : 10px;" hidden="true"></ion-spinner>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <h1 style="text-align: center;">Tram C</h1>
-  <ion-list>
-      <ion-item  *ngFor="let term of arrayA;" (click)="clicked(term)" >
-          <ion-row>
-            <p >{{term}}</p>
-          </ion-row>
-      </ion-item>
-  </ion-list>
+ 
 
   <ion-grid>
     <ion-row>
       <ion-col size="3" size-sm>
-          <ion-button shape="round">A</ion-button>
+          <ion-button shape="round"(click)="test('A')">A </ion-button>
       </ion-col>
       <ion-col size="3" size-sm>
-        <ion-button shape="round"> B</ion-button>
+        <ion-button shape="round"(click)="test('B')">B </ion-button>
       </ion-col>
       <ion-col size="3" size-sm>
-        <ion-button shape="round">C</ion-button>
+        <ion-button shape="round" (click)="test('C')">C </ion-button>
       </ion-col>
       <ion-col size="3" size-sm>
-        <ion-button shape="round">D</ion-button>
+        <ion-button shape="round"(click)="test('D')">D </ion-button>
       </ion-col>
-
     </ion-row>
+    <ion-row>
+        <ion-col size="3" size-sm>
+            <ion-button shape="round"(click)="test('E')">E </ion-button>
+        </ion-col>
+        <ion-col size="3" size-sm>
+          <ion-button shape="round"(click)="test('C1')">C1 </ion-button>
+        </ion-col>
+        <ion-col size="3" size-sm>
+          <ion-button shape="round" (click)="test('C2')">C2 </ion-button>
+        </ion-col>
+        <ion-col size="3" size-sm>
+          <ion-button shape="round"(click)="test('C3')">C3  </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col size="3" size-sm>
+              <ion-button shape="round"(click)="test('C4')">C4 </ion-button>
+          </ion-col>
+          <ion-col size="3" size-sm>
+            <ion-button shape="round"(click)="test('C5')"> C5 </ion-button>
+          </ion-col>
+          <ion-col size="3" size-sm>
+            <ion-button shape="round" (click)="test('C6')">C6 </ion-button>
+          </ion-col>
+          <ion-col size="3" size-sm>
+            <ion-button shape="round"(click)="test('C7')">C7 </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="3" size-sm>
+                <ion-button shape="round"(click)="test('12')">12</ion-button>
+            </ion-col>
+            <ion-col size="3" size-sm>
+              <ion-button shape="round"(click)="test('13')">13</ion-button>
+            </ion-col>
+            <ion-col size="3" size-sm>
+              <ion-button shape="round" (click)="test('14')">14</ion-button>
+            </ion-col>
+            <ion-col size="3" size-sm>
+              <ion-button shape="round"(click)="test('15')">15</ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col size="3" size-sm>
+                  <ion-button shape="round"(click)="test('16')">16</ion-button>
+              </ion-col>
+              <ion-col size="3" size-sm>
+                <ion-button shape="round"(click)="test('19')">19</ion-button>
+              </ion-col>
+              <ion-col size="3" size-sm>
+                <ion-button shape="round" (click)="test('20')">20</ion-button>
+              </ion-col>
+              <ion-col size="3" size-sm>
+                <ion-button shape="round"(click)="test('21')">21</ion-button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="3" size-sm>
+                    <ion-button shape="round"(click)="test('22')">22</ion-button>
+                </ion-col>
+                <ion-col size="3" size-sm>
+                  <ion-button shape="round"(click)="test('23')">23</ion-button>
+                </ion-col>
+                <ion-col size="3" size-sm>
+                  <ion-button shape="round" (click)="test('25')">25</ion-button>
+                </ion-col>
+                <ion-col size="3" size-sm>
+                  <ion-button shape="round"(click)="test('26')">26</ion-button>
+                </ion-col>
+              </ion-row>
   </ion-grid>
+
 </ion-content>

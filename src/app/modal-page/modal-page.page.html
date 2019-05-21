@@ -3,16 +3,42 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
-    <ion-title>ModalPage</ion-title>
+    <ion-title>{{dir}}  
+    </ion-title>
+    <ion-spinner slot="end" id="spinner" name="crescent" style="margin-right : 10px;" hidden="true"></ion-spinner>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-list>
-        <ion-item  *ngFor="let term of arrayH;" >
+        <ion-radio-group>
+          <ion-list-header style="text-align: center;">
+            <ion-label>Destinations :</ion-label>
+          </ion-list-header>
+      
+          <ion-item>
+            <ion-label>{{dir1}}</ion-label>
+            <ion-radio slot="end" value="biff" checked (click)="changeDir(true)"></ion-radio>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label>{{dir2}}</ion-label>
+            <ion-radio slot="end" value="griff" (click)="changeDir(false)"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+    </ion-list>
+    <ion-list>
+        <ion-list-header style="text-align: center;">
+            <ion-label>Arrêts :</ion-label>
+          </ion-list-header>
+        <ion-item  *ngFor="let term of arrayA;" (click)="clicked(term)">
             <ion-row>
-              <p >{{term}}</p>
+              <p>{{term}}</p>
             </ion-row>
         </ion-item>
     </ion-list>  
-</ion-content>
+
+
+  </ion-content>
+
+  
