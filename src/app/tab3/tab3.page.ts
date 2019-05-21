@@ -18,7 +18,9 @@ import { load } from '@angular/core/src/render3';
 
 export class Tab3Page{
 
-  constructor(public navCtrl: NavController, public http: HttpClient, private router: Router) {
+  constructor(private router: Router) {
+  
+
    }
 
   test(id: any){

@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Map, latLng, tileLayer, Layer, marker, icon, LatLng } from 'leaflet';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,6 +15,11 @@ export class Tab2Page {
   items : any;
   positionX : any;
   positionY : any;
+  m : any;
+
+  constructor (private router: Router){
+    
+  }
 
   ionViewDidEnter() {
     this.loadMap();
@@ -29,9 +35,10 @@ export class Tab2Page {
       }).addTo(this.map);
       this.map.locate({
         setView: true,
-        maxZoom: 14,
+        maxZoom: 10,
         enableHighAccuracy:true
       }).on('locationfound', <LeafletMouseEvent>(e) => {
+        this.map.setZoom(15);
         marker([e.latitude,e.longitude], {
           icon: icon({
             iconSize: [ 25, 41 ],
@@ -40,8 +47,9 @@ export class Tab2Page {
             shadowUrl: 'leaflet/marker-shadow.png'
           })
         }).addTo(this.map)
-        .bindPopup('Salut <br> ça va?');
+        .bindPopup('Vous etes <br> Ici');
         })
+      this.map.setZoom(9);
       // affichage marker arret
       this.loadMarker();
     }, 50);
@@ -49,31 +57,32 @@ export class Tab2Page {
     };
 
   loadMarker(){
+    let m: any;
     this.map.locate({
       setView: true,
       maxZoom: 14,
       enableHighAccuracy:true
     }).on('locationfound', <LeafletMouseEvent>(e) => {
-    console.log('http://data.metromobilite.fr/api/linesNear/json?x=' + e.longitude.toString() + '&y=' + e.latitude.toString() + '&dist=1000&details=true')
     fetch('http://data.metromobilite.fr/api/linesNear/json?x=' + e.longitude.toString() +
           '&y=' + e.latitude.toString() + '&dist=1000&details=true')
       .then(response => {
-        console.log(response);
         return response.json()
       })
       .then(data => {
-        console.log(data);
         data.forEach((value) => {
-          console.log(value['lon'])
-          marker([value['lat'],value['lon']], {
+          console.log(value)
+          m = marker([value['lat'],value['lon']], {
             icon: icon({
               iconSize: [ 25, 41 ],
               iconAnchor: [ 13, 41 ],
-              iconUrl: 'leaflet/marker-icon.png',
-              shadowUrl: 'leaflet/marker-shadow.png'
+              iconUrl: 'leaflet/66462.png'
             })
           }).addTo(this.map)
-          .bindPopup('Salut <br> ça va?');
+          m.on('click', ()=>{
+            let spinner = document.getElementById("spinner");
+            spinner.hidden = false;
+            this.router.navigate(['/horaires-arrets',{id: value['id']}]);
+          });
         });
       })
       .catch(err => {
