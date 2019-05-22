@@ -77,7 +77,7 @@ export class Tab2Page {
             icon: icon({
               iconSize: [ 25, 41 ],
               iconAnchor: [ 13, 41 ],
-              iconUrl: 'leaflet/Train_Blue.png'
+              iconUrl: 'assets/Train_Blue.png'
             })
           }).addTo(this.map)
           m.on('click', ()=>{
