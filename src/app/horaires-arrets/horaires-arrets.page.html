@@ -1,9 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>horairesArrets</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{nomArret}}</ion-title>
+    <ion-spinner slot="end" id="spinner3" name="crescent" style="margin-right : 10px;" hidden="false"></ion-spinner>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list *ngFor="let dir of arrayD;">
+      <ion-item>
+        <ion-list-header><ion-title color="primary">Direction : {{dir}} </ion-title></ion-list-header>
+      </ion-item>
+      <ion-item *ngFor="let term of arrayH;">
+        <ion-row>
+          <ion-text>{{term}} minutes</ion-text>
+        </ion-row>
+      </ion-item>
+      
+      
+  </ion-list>
 </ion-content>

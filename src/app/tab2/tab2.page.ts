@@ -63,25 +63,27 @@ export class Tab2Page {
       maxZoom: 14,
       enableHighAccuracy:true
     }).on('locationfound', <LeafletMouseEvent>(e) => {
+      console.log()
     fetch('http://data.metromobilite.fr/api/linesNear/json?x=' + e.longitude.toString() +
           '&y=' + e.latitude.toString() + '&dist=1000&details=true')
       .then(response => {
         return response.json()
       })
       .then(data => {
+        console.log(data)
         data.forEach((value) => {
           console.log(value)
           m = marker([value['lat'],value['lon']], {
             icon: icon({
               iconSize: [ 25, 41 ],
               iconAnchor: [ 13, 41 ],
-              iconUrl: 'leaflet/66462.png'
+              iconUrl: 'leaflet/Train_Blue.png'
             })
           }).addTo(this.map)
           m.on('click', ()=>{
             let spinner = document.getElementById("spinner");
             spinner.hidden = false;
-            this.router.navigate(['/horaires-arrets',{id: value['id']}]);
+            this.router.navigate(['/horaires-arrets',{id: value['id'], name: value['name'], lines: value['lines']}]);
           });
         });
       })
