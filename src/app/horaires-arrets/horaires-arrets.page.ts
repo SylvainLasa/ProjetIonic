@@ -32,6 +32,8 @@ export class HorairesArretsPage implements OnInit {
       }
       console.log(this.id);
       this.loadData(this.id);
+      console.log(this.arrayH);
+      
     });
   }
 
@@ -65,26 +67,24 @@ export class HorairesArretsPage implements OnInit {
         //this.pattern.push(element['pattern']);
         //this.arrayH.push(this.pattern.desc);
         this.times.forEach(element2 => {
-          this.calcul(element2.scheduledArrival);
+          this.calcul(element2.scheduledArrival, element['pattern']['desc']);
           spinner3.hidden = true;
         });
         nbElem += 1;
       });
   
-    })
-  
+    })  
   
   }
 
-  calcul(time:number){
+  calcul(time:number, arrayD){
     let currentSeconds = this.time();
     this.horaires = (time - currentSeconds) / 60;
     this.horaires = Math.trunc(this.horaires);
     if (this.horaires<1){
       this.horaires = ">1"
     }
-    this.arrayH.push(this.horaires);
-    console.log(this.arrayH)
+    this.arrayH.push([arrayD, this.horaires]);
   }
 
   /*

@@ -13,12 +13,10 @@
       <ion-item>
         <ion-list-header><ion-title color="primary">Direction : {{dir}} </ion-title></ion-list-header>
       </ion-item>
-      <ion-item *ngFor="let term of arrayH;">
-        <ion-row>
-          <ion-text>{{term}} minutes</ion-text>
-        </ion-row>
-      </ion-item>
-      
-      
+      <ng-container *ngFor="let term of arrayH;">
+        <ion-item *ngIf="dir == term[0]" >
+            <ion-text>{{term[1]}} minutes</ion-text>
+        </ion-item>
+      </ng-container>
   </ion-list>
 </ion-content>
