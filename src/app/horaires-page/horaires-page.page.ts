@@ -58,7 +58,7 @@ loadData(id:any){
       spinner3.hidden = true;
 
     });
-    this.direction = this.pattern.desc;
+    this.direction = this.times[1].stopName;
 
   })
 
