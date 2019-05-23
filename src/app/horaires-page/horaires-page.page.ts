@@ -15,6 +15,8 @@ export class HorairesPagePage implements OnInit {
   public horaires:any;
   public arrayH = new Array;
   public direction: any;
+  public minutes: any;
+  public heures: any;
 
 
 
@@ -69,7 +71,20 @@ calcul(time:number){
   this.horaires = (time - currentSeconds) / 60;
   this.horaires = Math.trunc(this.horaires);
   if (this.horaires<1){
-    this.horaires = ">1"
+    this.horaires = ">1 minute"
+  }
+  else if (this.horaires>60){
+    this.heures = Math.floor(this.horaires/60);
+    this.minutes = this.horaires % 60;
+    this.horaires = this.heures + " h "+this.minutes+" min"
+  }
+  else {
+    if (this.horaires ==1){
+      this.horaires = this.horaires + " minute"
+    }
+    else {
+      this.horaires = this.horaires + " minutes"
+    }
   }
   this.arrayH.push(this.horaires);
 }
