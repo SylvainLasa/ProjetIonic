@@ -1,21 +1,21 @@
 <ion-header>
     <img src="assets/moovit.png" style="width: 100%; height: 100%">
-    <ion-searchbar class="searchbar" value="Ou voulez-vous aller ?"></ion-searchbar>
+    <ion-searchbar class="searchbar"  shape="round" value="Ou voulez-vous aller ?"></ion-searchbar>
 </ion-header>
 
 <ion-content>
     <ion-list>
           <ion-list-header class="titleList">
-            <ion-title color="primary">
+            <ion-title color="secondary">
               <div class="title">Favoris</div>
             </ion-title>
-            <ion-button (click)="goToAddFav()" shape="round" class="btnAdd" color="primary">Ajouter</ion-button>
+            <ion-button (click)="goToAddFav()" shape="round" class="btnAdd" color="secondary">Ajouter</ion-button>
           </ion-list-header>
-          
-        <ion-item *ngFor="let term of arrayH;">
-          <ion-row>
-            <ion-text>{{term}} minutes</ion-text>
-          </ion-row>
-        </ion-item>
+          <ion-item  *ngFor="let term of favoris;" >
+              <ion-label>
+                <h2 class="name">{{term[0]}}</h2>
+                <p class="adr">{{term[1]}}</p>
+              </ion-label>
+          </ion-item> 
     </ion-list>
 </ion-content>

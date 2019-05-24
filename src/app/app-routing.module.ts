@@ -5,7 +5,8 @@ const routes: Routes = [
   { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'modal-page', loadChildren: './modal-page/modal-page.module#ModalPagePageModule' },
   { path: 'horaires-page', loadChildren: './horaires-page/horaires-page.module#HorairesPagePageModule' },  { path: 'horaires-arrets', loadChildren: './horaires-arrets/horaires-arrets.module#HorairesArretsPageModule' },
-  { path: 'add-favoris', loadChildren: './add-favoris/add-favoris.module#AddFavorisPageModule' }
+  { path: 'add-favoris', loadChildren: './add-favoris/add-favoris.module#AddFavorisPageModule' },
+  { path: 'seach-itineraire', loadChildren: './seach-itineraire/seach-itineraire.module#SeachItinerairePageModule' }
 
 ];
 @NgModule({

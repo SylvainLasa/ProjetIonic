@@ -11,7 +11,7 @@
 <ion-content>
   <ion-list *ngFor="let dir of arrayD;">
       <ion-item>
-        <ion-list-header><ion-title color="primary">Direction : {{dir}} </ion-title></ion-list-header>
+        <ion-list-header><ion-title color="invert">Direction : {{dir}} </ion-title></ion-list-header>
       </ion-item>
       <ng-container *ngFor="let term of arrayH;">
         <ion-item *ngIf="dir == term[0]" >

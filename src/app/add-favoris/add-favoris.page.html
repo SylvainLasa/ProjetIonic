@@ -1,21 +1,21 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
     <ion-title>Ajouter une adresse favorite</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <form [formGroup]="appareilForm">
-        <ion-list>
-          <ion-item-divider>Informations</ion-item-divider>
-          <ion-item>
-            <ion-label>Nom</ion-label>
-            <ion-input placeholder="Appareil" formControlName="name"></ion-input>
-          </ion-item>
-          <ion-item-divider>Description</ion-item-divider>
-          <div formArrayName="description">
-            <ion-item *ngFor="let control of getDescriptionArray().controls; let i = index"></ion-item>
-          </div>
-        </ion-list>
-      </form>
+  <br>
+    <ion-text class="inputTitle">Nom du Favoris :</ion-text>
+    <ion-item>
+        <ion-input (click)="keyboard.show()" type="text"  class="textArea" id="nom" clearOnEdit="true"></ion-input>
+    </ion-item>
+    <ion-text class="inputTitle">Adresse du favoris :</ion-text>
+    <ion-item>
+        <ion-input (click)="keyboard.show()" type="text" class="textArea" id="adr" clearOnEdit="true"></ion-input>
+    </ion-item>
+  <ion-button expand="block" shape="round" color="invert" class="btnAjouter" (click)="saveData()">Ajouter</ion-button>
 </ion-content>

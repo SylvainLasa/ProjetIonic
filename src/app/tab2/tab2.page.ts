@@ -84,6 +84,8 @@ export class Tab2Page {
             let spinner = document.getElementById("spinner");
             spinner.hidden = false;
             this.router.navigate(['/horaires-arrets',{id: value['id'], name: value['name'], lines: value['lines']}]);
+            spinner.hidden = true;
+
           });
         });
       })

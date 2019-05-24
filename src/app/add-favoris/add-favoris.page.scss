@@ -1,0 +1,26 @@
+.inputTitle{
+    padding-left: unset;
+    padding-right: unset;
+    -webkit-padding-start: 12px;
+    padding-inline-start: 12px;
+    -webkit-padding-end: 12px;
+    padding-inline-end: 12px;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: var(--ion-font-family,inherit);
+    padding-top: 5px;
+}
+.textArea{
+    height:auto;
+    max-width:600px;
+    color:#000000;
+    font-weight:400;
+    font-size:30px;
+    background-color: #999;
+    margin: 5px;
+}
+.btnAjouter{
+    background-color: #000000;
+    margin-left: 10px;
+    margin-right: 10px;
+}
